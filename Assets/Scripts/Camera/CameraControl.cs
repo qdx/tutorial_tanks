@@ -5,7 +5,7 @@ public class CameraControl : MonoBehaviour
     public float m_DampTime = 0.2f;                 
     public float m_ScreenEdgeBuffer = 4f;           
     public float m_MinSize = 6.5f;                  
-    [HideInInspector] public Transform[] m_Targets; 
+    /*[HideInInspector]*/ public Transform[] m_Targets; 
 
 
     private Camera m_Camera;                        
@@ -52,7 +52,7 @@ public class CameraControl : MonoBehaviour
         if (numTargets > 0)
             averagePos /= numTargets;
 
-        averagePos.y = transform.position.y;
+        //averagePos.y = transform.position.y;
 
         m_DesiredPosition = averagePos;
     }
@@ -67,6 +67,8 @@ public class CameraControl : MonoBehaviour
 
     private float FindRequiredSize()
     {
+        // world pos -> cameraRig local pos
+        // world pos -> cameraRig local pos
         Vector3 desiredLocalPos = transform.InverseTransformPoint(m_DesiredPosition);
 
         float size = 0f;
